@@ -2,6 +2,8 @@ set exrc
 set smartindent
 set number
 set relativenumber
+set cursorline
+" set cursorcolumn
 set nohlsearch
 set hidden
 set noerrorbells
@@ -25,3 +27,12 @@ set signcolumn=yes
 " having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delaysand poor user experience.
 set updatetime=50
+
+call plug#begin('~/.vim/plugged')
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'gruvbox-community/gruvbox'
+call plug#end()
+
+colorscheme gruvbox
