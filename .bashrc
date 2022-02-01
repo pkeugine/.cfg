@@ -117,3 +117,6 @@ if ! shopt -oq posix; then
 fi
 
 alias config='/usr/bin/git --git-dir=/home/pkeugine/.pkconfig/ --work-tree=/home/pkeugine'
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
