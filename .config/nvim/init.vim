@@ -36,3 +36,18 @@ Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 colorscheme gruvbox
+
+let mapleader = " "
+
+nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+
+augroup PK_CONFIG
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup END
