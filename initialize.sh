@@ -1,26 +1,26 @@
 #!/bin/bash
 
-echo adding neovim repository
+echo -e "\033[31m adding neovim repository"
 sudo add-apt-repository ppa:neovim-ppa/stable
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 # OK
-echo adding docker repository
+echo -e "\033[31m adding docker repository"
 sudo add-apt-repository \
 "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-sudo apt update
-sudo apt upgrade
+sudo apt -y update
+sudo apt -y upgrade
 
-echo installing tree command
+echo -e "\033[31m installing tree command"
 sudo apt install -y tree
 
 if ! command -v git &> /dev/null
 then
-    echo installing git
+    echo -e "\033[31m installing git"
     sudo apt install -y git
 else
-    echo git exists. skipping git installation
+    echo -e "\033[31m git exists. skipping git installation"
 fi
 
 echo setting git configuration
@@ -31,11 +31,11 @@ git config --global credential.helper 'cache --timeout=36000000'
 
 if ! command -v curl &> /dev/null
 then
-    echo installing curl
+    echo -e "\033[31m installing curl"
     sudo apt install -y curl
     sudo apt install -y git
 else
-    echo curl exists. skipping curl installation
+    echo -e "\033[31m curl exists. skipping curl installation"
 fi
 
 sudo apt install -y neovim
@@ -52,25 +52,25 @@ sudo apt install -y net-tools
 sudo apt install -y ethtool
 sudo apt install -y openssh-server
 
-echo installing openJDK version 11
+echo -e "\033[31m installing openJDK version 11"
 sudo apt install -y openjdk-11-jdk
 
-echo installing node.js version 10
+echo -e "\033[31m installing node.js version 10"
 sudo apt install nodejs
 
-echo installing npm
+echo -e "\033[31m installing npm"
 sudo apt install npm
 
-echo installing yarn
+echo -e "\033[31m installing yarn"
 sudo npm install --global yarn
 # 여러 node 버전을 다운로드하고 관리하기 위해 nvm 설치
-echo installing nvm
+echo -e "\033[31m installing nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-echo installing node.js v16.13.2
+echo -e "\033[31m installing node.js v16.13.2"
 nvm install v16.13.2
 
-echo installing docker
+echo -e "\033[31m installing docker"
 sudo apt install -y docker-ce
 
 # sudo systemctl enable docker
