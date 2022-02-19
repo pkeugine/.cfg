@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -e "\033[31m adding neovim repository"
-sudo add-apt-repository ppa:neovim-ppa/stable
+yes | sudo add-apt-repository ppa:neovim-ppa/stable
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 # OK
