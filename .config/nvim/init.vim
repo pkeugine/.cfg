@@ -27,6 +27,7 @@ set signcolumn=yes
 " having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delaysand poor user experience.
 set updatetime=50
+set list
 
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-lua/plenary.nvim'
